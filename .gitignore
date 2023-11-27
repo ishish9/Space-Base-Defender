@@ -2,6 +2,17 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+/[Aa]ssets/Adaptive Performance/
+/[Aa]ssets/AllIn1VfxToolkit/
+/[Aa]ssets/BreakableAsteroids/
+/[Aa]ssets/EffectExamples/
+/[Aa]ssets/Exo-planets - NovaShade/
+/[Aa]ssets/FORGE3D/
+/[Aa]ssets/QuickOutline/
+/[Aa]ssets/SCI-FI UI Pack Pro/
+/[Aa]ssets/SpaceshipBuilder/
+/[Aa]ssets/TextMesh Pro/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
