@@ -60,7 +60,7 @@ public class gun1 : MonoBehaviour
             else
             {
                 var bullet = Instantiate(Prefab[WeaponSelection], SpawnLocation.transform.position, Quaternion.identity);
-                bullet.GetComponent<Rigidbody>().velocity = SpawnLocation.forward * Projectilespeed;
+                bullet.GetComponent<Rigidbody>().linearVelocity = SpawnLocation.forward * Projectilespeed;
             }
         }
     }
@@ -90,7 +90,7 @@ public class gun1 : MonoBehaviour
         if (gunActive)
         {
             var bullet = Instantiate(Prefab[WeaponSelection], SpawnLocation.position, SpawnLocation.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = SpawnLocation.forward * Projectilespeed;
+            bullet.GetComponent<Rigidbody>().linearVelocity = SpawnLocation.forward * Projectilespeed;
         }    
     }
 

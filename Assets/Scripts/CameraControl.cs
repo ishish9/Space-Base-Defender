@@ -17,8 +17,9 @@ public class CameraControl : MonoBehaviour
 
     public float xSensitivity = 30f;
     public float ySensitivity = 30f;
+    private int gunnerNumber;
 
-    private Vector2 lookControl;
+    [SerializeField]private Vector2 lookControl;
     private float LookControlSpeed = 30f;
     [SerializeField] private Transform[] GunnerPositions;
     ActionMap actionsWrapper;
@@ -29,6 +30,8 @@ public class CameraControl : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
         //actionsWrapper.Player.Fire.performed += OnFire;
+        actionsWrapper.Player.SwitchGunner.performed += OnSwitchGunner;
+
     }
 
     public void OnEnable()
@@ -41,49 +44,35 @@ public class CameraControl : MonoBehaviour
         actionsWrapper.Player.Disable();
     }
 
-    public void OnFire(InputAction.CallbackContext context)
+    public void OnSwitchGunner(InputAction.CallbackContext context)
     {
-
+        gunnerNumber++;
+        switch (gunnerNumber)
+        {
+            // Selects Gunner view.
+            case 0:
+                transform.position = GunnerPositions[0].position + new Vector3(0, 0, 0);
+                break;
+            case 1:
+                transform.position = GunnerPositions[1].position + new Vector3(0, 0, 1);
+                break;
+            case 2:
+                transform.position = GunnerPositions[2].position + new Vector3(1, 0, 0);
+                break;
+            case 3:
+                transform.position = GunnerPositions[3].position + new Vector3(0, 0, -1);
+                break;
+            case 4:
+                transform.position = GunnerPositions[4].position + new Vector3(-1, 0, 0);
+                break;        
+        }
     }
 
-    private void Look()
-    {
-        lookControl = actionsWrapper.Player.Look.ReadValue<Vector2>();
-        float mouseX = lookControl.x * LookControlSpeed * Time.deltaTime;
-        float mouseY = lookControl.y * LookControlSpeed * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(lookControl.x, lookControl.y,0);
-        transform.localRotation = Quaternion.Euler(lookControl.x,lookControl.y,0);
-    }
+
     void Update()
     {
-        Look();
-        Debug.Log(lookControl);
-        // Selects Gunner 1
-        if (Input.GetKeyDown("1"))
-        {
-            transform.position = GunnerPositions[0].position + new Vector3(0,0,0);
-        }
-        // Selects Gunner 2
-        if (Input.GetKeyDown("2"))
-        {
-            transform.position = GunnerPositions[1].position + new Vector3(0,0,1);
-        }
-        // Selects Gunner 3
-        if (Input.GetKeyDown("3"))
-        {
-            transform.position = GunnerPositions[2].position + new Vector3(1,0,0);
-        }
-        // Selects Gunner 4
-        if (Input.GetKeyDown("4"))
-        {
-            transform.position = GunnerPositions[3].position + new Vector3(0,0,-1);
-        }
-        // Selects Gunner 5
-        if (Input.GetKeyDown("5"))
-        {
-            transform.position = GunnerPositions[4].position + new Vector3(-1,0,0);
-        }
-                                               
+        lookControl = actionsWrapper.Player.Look.ReadValue<Vector2>() * Time.deltaTime;
+        transform.localRotation = Quaternion.Euler(lookControl.x,lookControl.y,0);                                                   
         if (shake)
         {
             shake = false;

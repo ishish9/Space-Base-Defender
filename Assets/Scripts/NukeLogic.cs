@@ -26,7 +26,7 @@ public class NukeLogic : MonoBehaviour
 
         transform.RotateAround(target.transform.position, Vector3.left, 5 * Time.deltaTime);
         Vector3 direction = player.transform.position - transform.position;
-        rb.velocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
+        rb.linearVelocity = new Vector3(direction.x, direction.y, direction.z).normalized * force;
 
         float dist = Vector3.Distance(other.position, transform.position);
         DistanceDisplay.text = dist.ToString();
