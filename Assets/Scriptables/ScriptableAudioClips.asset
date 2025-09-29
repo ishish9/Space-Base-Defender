@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de2c700ec675014fa2e5dc3ab18738b, type: 3}
+  m_Name: ScriptableAudioClips
+  m_EditorClassIdentifier: 
+  LetterCorrect: {fileID: 0}
+  LetterWrong: {fileID: 0}
+  WordComplete: {fileID: 0}
+  WordSpawn: {fileID: 0}
+  WordExpired: {fileID: 0}
+  LevelUp: {fileID: 0}
+  Defeat: {fileID: 0}
+  Trophy: {fileID: 0}
+  Click: {fileID: 8300000, guid: 807cfcc15acb04e4ab62792a8aa52b56, type: 3}
+  MenuOpen: {fileID: 0}
+  MenuClose: {fileID: 0}
+  SpawnFountain: {fileID: 0}
+  FireProjectile: {fileID: 0}
+  ProjectileImpact: {fileID: 0}
+  AsteroidExplode: {fileID: 0}
+  MultiAdd: {fileID: 0}
+  MultiSubtract: {fileID: 0}
+  MultiLevelUp: {fileID: 0}
+  MultiLevelDown: {fileID: 0}

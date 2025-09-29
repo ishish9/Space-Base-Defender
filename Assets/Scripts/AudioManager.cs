@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+    [SerializeField] public AudioClips audioClips;
     [SerializeField] private AudioSource MusicSource, EffectsSource;
     void Awake()
     {

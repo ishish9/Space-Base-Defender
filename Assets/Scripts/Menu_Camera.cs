@@ -6,7 +6,6 @@ public class Menu_Camera : MonoBehaviour
 {
     [SerializeField] private GameObject Prefab;
     [SerializeField] private Transform SpawnLocation;
-    [SerializeField] private AudioSource click;
     [SerializeField] private Camera cam;
 
 
@@ -27,7 +26,7 @@ public class Menu_Camera : MonoBehaviour
         {
             if (hit.collider.tag == "Enemy_Shield")
             {
-                click.Play();
+                AudioManager.Instance.PlaySound(AudioManager.Instance.audioClips.Click);
             }
         }
     }
